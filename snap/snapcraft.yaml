@@ -1,0 +1,36 @@
+name: i-am-poor
+version: 0.1.0
+summary: I Am Poor
+description: I Am Poor that does nothing!
+
+confinement: strict
+base: core18
+grade: stable
+
+slots:
+  dbus-i-am-poor: # adjust accordingly to your app name
+    interface: dbus
+    bus: session
+    name: com.example.i_am_poor # adjust accordingly to your app name and
+    
+apps:
+  i-am-poor:
+    command: desktop-launch $SNAP/bin/i_am_poor
+    desktop: /usr/share/applications/i-am-poor.desktop
+    extensions: [flutter-master] # Where "master" defines which Flutter channel to use for the build
+    slots:
+      - dbus-i-am-poor
+    plugs:
+      - desktop
+      - desktop-legacy
+parts:
+  i-am-poor:
+    source: .
+    plugin: flutter
+    flutter-target: lib/main.dart # The main entry-point file of the application
+    override-pull: |
+      snapcraftctl pull
+      cp -v snap/gui/i-am-poor.desktop /usr/share/applications/i-am-poor.desktop
+      # Point icon to the correct location
+      sed -i.bak -e 's|Icon=.*|Icon=\${SNAP}/meta/gui/i-am-poor.png|g' snap/gui/i-am-poor.desktop
+    
