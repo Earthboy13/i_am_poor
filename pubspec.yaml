@@ -32,7 +32,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+  msix: ^1.0.5
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -73,3 +73,18 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+msix_config:
+  display_name: I Am Poor
+  publisher_display_name: KW-tech
+  identity_name: kwtech.ca.IAmPoor
+  msix_version: 1.0.0.3
+  certificate_path: C:\Users\Earthboy13\.ssl\i_am_poor.pfx
+  certificate_password: 
+  publisher:  E=admin@kwtech.ca, CN=i-am-poor, OU=Development, O=Koshin and Warsame Technologies Inc., L=Toronto, S=Ontario, C=CA
+  logo_path: coal_lX5_icon.ico
+  start_menu_icon_path: coal_lX5_icon.ico
+  tile_icon_path: coal_lX5_icon.ico
+  vs_generated_images_folder_path: C:\Users\Earthboy13\VS-Code\Projects\i_am_poor\images
+  icons_background_color: transparent #(or some color like: '#ffffff')
+  architecture: x64
+  capabilities: 'internetClient'
