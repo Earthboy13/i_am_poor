@@ -46,5 +46,5 @@ app.*.map.json
 /android/app/release
 
 # Flutter desktop builds
-windows/
-linux/
+/windows/
+/linux/
